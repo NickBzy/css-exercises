@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 .container {
@@ -88,4 +89,77 @@
 .footer p {
   font-size: 13px;
   font-weight: normal;
+}
+
+/* ADDED */
+li {
+  list-style: none;
+}
+
+.container {
+  display: grid;
+  height: 100vh;
+  gap: 4px;
+  grid-template-rows: 2fr 1fr 18fr 1fr;
+  grid-template-columns: 1fr 4fr;
+  grid-template-areas: 
+  "header header"
+  "sidebar nav"
+  "sidebar article"
+  "footer footer";
+}
+
+.header {
+  grid-area: header;
+  display: grid;
+  grid-template: 1fr / 1fr 2fr;
+  align-items: center;
+}
+
+.logo {
+  justify-self: start;
+}
+
+.header .menu ul {
+  display: grid;
+  grid-template: 1fr / repeat(4, 1fr);
+}
+
+.sidebar {
+  grid-area: sidebar;
+  display: grid;
+  gap: 60px;
+}
+
+.sidebar div {
+  display: grid;
+  place-items: center;
+}
+
+.nav {
+  grid-area: nav;
+}
+
+.nav ul {
+  display: grid;
+  grid-template: 1fr / repeat(3, 1fr);
+  place-items: center;
+  height: 100%;
+}
+
+.article {
+  grid-area: article;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-rows: repeat(auto-fit, 1fr);
+}
+
+.footer {
+  grid-area: footer;
+  margin-bottom: 4px;
+}
+
+.container > * {
+  min-height: 0;
 }
